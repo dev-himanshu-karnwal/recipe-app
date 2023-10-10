@@ -49,14 +49,14 @@ exports.oneCategoryPage = async (req, res, next) => {
     const categoryById = await Recipe.find({ category: req.params.name });
     if (!categoryById) throw new Error("Error getting recipe");
 
-    res.status(200).render("recipesByCategory", {
+    res.status(200).render("oneCategory", {
       category: req.params.name,
       categoryById,
       title: `Categories - Cooking Blog`,
     });
   } catch (error) {
     console.log("ERROR", error.message);
-    res.status(200).render("recipesByCategory", {
+    res.status(200).render("oneCategory", {
       title: `Cooking Blog`,
     });
   }
